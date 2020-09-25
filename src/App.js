@@ -41,14 +41,14 @@ export const MENU = [
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename="/react-router/">
         <div>
           <Header />
           <Switch>
             {MENU.map(({ path, component, exact = false }) => (
               <Route path={path} exact={exact} component={component} />
             ))}
-            <Route path="/" exact render={() => <Redirect to="/posts" />} />
+            <Route path="/" exact render={() => <Redirect to="/main" />} />
           </Switch>
         </div>
       </Router>
