@@ -1,26 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Main from "./main/main";
+import Contacts from "./contacts/contacts";
+import Posts from "./post/posts";
+import ImageGridList from "./images/images";
+import Header from "./header/header";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const MENU = [
+  {
+    title: "Главная",
+    path: "/main",
+    component: Main,
+    exact: true,
+  },
+  {
+    title: "Изображения",
+    path: "/images",
+    component: ImageGridList,
+    exact: true,
+  },
+  {
+    title: "Посты",
+    path: "/posts",
+    component: Posts,
+    exact: true,
+  },
+  {
+    title: "Контакты",
+    path: "/contacts",
+    component: Contacts,
+    exact: true,
+  },
+];
+
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <Header />
+          <Switch>
+            {MENU.map(({ path, component, exact = false }) => (
+              <Route path={path} exact={exact} component={component} />
+            ))}
+            <Route path="/" exact render={() => <Redirect to="/posts" />} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;

@@ -1,0 +1,10 @@
+.photo-img {
+  width: 450px;
+  height: 800px;
+  display: flex;
+}
+
+.container-box {
+  width: 1200px;
+  height: 100vh;
+}
