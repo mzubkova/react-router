@@ -46,12 +46,7 @@ class App extends Component {
           <Header />
           <Switch>
             {MENU.map(({ path, component, exact = false }) => (
-              <Route
-                path={path}
-                exact={exact}
-                component={component}
-                render={() => <Redirect to={path} />}
-              />
+              <Route path={path} exact={exact} component={component} />
             ))}
             <Route path="/" exact render={() => <Redirect to="/main" />} />
           </Switch>
