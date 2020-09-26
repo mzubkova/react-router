@@ -14,7 +14,7 @@ import {
 export const MENU = [
   {
     title: "Главная",
-    path: "/main",
+    path: "/",
     component: Main,
     exact: true,
   },
@@ -22,19 +22,16 @@ export const MENU = [
     title: "Изображения",
     path: "/images",
     component: ImageGridList,
-    exact: true,
   },
   {
     title: "Посты",
     path: "/posts",
     component: Posts,
-    exact: true,
   },
   {
     title: "Контакты",
     path: "/contacts",
     component: Contacts,
-    exact: true,
   },
 ];
 
@@ -45,11 +42,15 @@ class App extends Component {
         <div>
           <Header />
           <Switch>
-            {MENU.map(({ path, component, exact = false }) => (
-              <Route path={path} exact={exact} component={component} />
+            {MENU.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                component={route.component}
+              />
             ))}
             <Route path="/" exact render={() => <Redirect to="/main" />} />
-            <Route path={process.env.PUBLIC_URL + "/"} />
           </Switch>
         </div>
       </Router>
