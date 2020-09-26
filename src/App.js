@@ -49,6 +49,7 @@ class App extends Component {
               <Route path={path} exact={exact} component={component} />
             ))}
             <Route path="/" exact render={() => <Redirect to="/main" />} />
+            <Route path={process.env.PUBLIC_URL + "/"} />
           </Switch>
         </div>
       </Router>
