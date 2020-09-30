@@ -10,6 +10,13 @@ import image4 from "./img/IMG_4.png";
 import image5 from "./img/IMG_5.png";
 import image6 from "./img/IMG_6.png";
 
+// const IMG_1 = "./img/IMG_1.png";
+// const IMG_2 = "./img/IMG_2.png";
+// const IMG_3 = "./img/IMG_3.png";
+// const IMG_4 = "./img/IMG_4.png";
+// const IMG_5 = "./img/IMG_5.png";
+// const IMG_6 = "./img/IMG_6.png";
+
 const tileData = [
   {
     img: image1,

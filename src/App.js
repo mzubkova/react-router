@@ -45,9 +45,8 @@ class App extends Component {
         <div>
           <Header />
           <Switch>
-            {MENU.map(({ path, component, index, exact = false }) => (
+            {MENU.map(({ path, component, exact = false }) => (
               <Route
-                key={index}
                 path={path}
                 exact={exact}
                 component={component}
