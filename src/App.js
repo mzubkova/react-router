@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Main from "./main/main";
 import Contacts from "./contacts/contacts";
 import Posts from "./post/posts";
-import ImageGridList from "./images/images";
+import ImageGridList from "./photos/photos";
 import Header from "./header/header";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Redirect,
@@ -20,34 +20,37 @@ export const MENU = [
   },
   {
     title: "Изображения",
-    path: "/images",
+    path: "/photos",
     component: ImageGridList,
+    exact: true,
   },
   {
     title: "Посты",
     path: "/posts",
     component: Posts,
+    exact: true,
   },
   {
     title: "Контакты",
     path: "/contacts",
     component: Contacts,
+    exact: true,
   },
 ];
 
 class App extends Component {
   render() {
     return (
-      <Router basename="/react-router/">
+      <Router>
         <div>
           <Header />
           <Switch>
-            {MENU.map((route, index) => (
+            {MENU.map(({ path, component, index, exact = false }) => (
               <Route
                 key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.component}
+                path={path}
+                exact={exact}
+                component={component}
               />
             ))}
             <Route path="/" exact render={() => <Redirect to="/main" />} />
