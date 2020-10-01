@@ -1,53 +1,62 @@
 import React from "react";
-import comment from "./img/comment.svg";
-import retweet from "./img/retweet.svg";
-import likes from "./img/heart.svg";
-import download from "./img/download.svg";
-import correct from "./img/correct.svg";
+import "./style.css";
+import commentImg from "./images/comment.svg";
+import retweetImg from "./images/retweet.svg";
+import likesImg from "./images/heart.svg";
+import downloadImg from "./images/download.svg";
+import correctImg from "./images/correct.svg";
 
-const Post = (props) => {
+const Post = ({
+  name,
+  photo,
+  nickname,
+  contentDate,
+  contentUser,
+  content,
+  image,
+  date,
+  comment,
+  retweet,
+  likes,
+}) => {
   return (
     <div className="inner">
       <section className="section">
-        <img src={props.photo} alt={props.photo} className="logo" />
+        <img src={photo} alt={photo} className="logo" />
         <div className="inner__box">
           <div className="inner__box-title">
             <a
               href="https://twitter.com/NASA"
               className="inner__box-title-link"
             >
-              {props.name}
+              {name}
             </a>
-            <img src={correct} alt={props.image} className="verified-image" />
-            {props.nickname} {props.date}
+            <img src={correctImg} alt={image} className="verified-image" />
+            {nickname} {date}
           </div>
           <p className="inner__box-content">
-            {props.contentDate}
-            <a a href={props.contentUser} className="inner__box-content--user">
-              {props.contentUser}
+            {contentDate}
+            <a a href={contentUser} className="inner__box-content--user">
+              {contentUser}
             </a>
-            {props.content}
+            {content}
           </p>
-          <img
-            src={props.image}
-            alt={props.image}
-            className="inner__box-image"
-          />
+          <img src={image} alt={image} className="inner__box-image" />
           <div className="inner__box-footer">
             <button className="inner__box-footer-button">
-              <img src={comment} alt="comment" />
-              <span className="inner__box-footer-count">{props.comment}</span>
+              <img src={commentImg} alt="comment" />
+              <span className="inner__box-footer-count">{comment}</span>
             </button>
             <button className="inner__box-footer-button">
-              <img src={retweet} alt="retweet" />
-              <span className="inner__box-footer-count">{props.retweet}</span>
+              <img src={retweetImg} alt="retweet" />
+              <span className="inner__box-footer-count">{retweet}</span>
             </button>
             <button className="inner__box-footer-button">
-              <img src={likes} alt="likes" />
-              <span className="inner__box-footer-count">{props.likes}</span>
+              <img src={likesImg} alt="likes" />
+              <span className="inner__box-footer-count">{likes}</span>
             </button>
             <button className="inner__box-footer-button">
-              <img src={download} alt="download" />
+              <img src={downloadImg} alt="download" />
             </button>
           </div>
         </div>

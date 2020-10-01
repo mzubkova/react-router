@@ -63,10 +63,10 @@ export default class Posts extends Component {
   render() {
     return (
       <div>
-      {postList.map((post) => (
-        <Post {...post} />
-      ))}
-    </div>
-    )
+        {postList.map((post) => (
+          <Post {...post} />
+        ))}
+      </div>
+    );
   }
 }
